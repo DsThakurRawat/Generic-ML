@@ -1,0 +1,8 @@
+1- its all about your repository
+2. bcz u'r working with team of peoples
+3. setup github{repository} so development will be in sink
+ a) we will setup new enviroment
+ b) we try to decide mini project structure
+ c) setup.py
+ d) requirements.txt
+ 
