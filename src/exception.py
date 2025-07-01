@@ -1,9 +1,9 @@
 import sys
 from types import ModuleType
+from logger import logging
+
+
 import logging
-
-
-
 
 
 def error_message_detail(error: Exception, error_detail: ModuleType) -> str:
@@ -34,7 +34,6 @@ class CustomException(Exception):
 if __name__ == "__main__":
     try:
         a = 1/0
-    except Exception as e:
-        logging.info("Logging has started")
-        raise CustomException(e,sys)
-        
+    except Exception as e: 
+        logging.info("Divide by zero", exc_info=True) 
+        raise CustomException(e, sys)
