@@ -1,9 +1,7 @@
 import sys
 from types import ModuleType
-from logger import logging
+from src.logger import logging
 
-
-import logging
 
 
 def error_message_detail(error: Exception, error_detail: ModuleType) -> str:
