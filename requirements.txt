@@ -4,3 +4,10 @@ seaborn
 flask
 streamlit
 scikit-learn
+matplotlib
+catboost
+
+xgboost
+
+
+
