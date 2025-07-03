@@ -5,4 +5,6 @@
  b) we try to decide mini project structure
  c) setup.py
  d) requirements.txt
- 
+ 4. component will have everything 
+  a) like data ingestion
+  b)

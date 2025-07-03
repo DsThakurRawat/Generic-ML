@@ -6,8 +6,10 @@ streamlit
 scikit-learn
 matplotlib
 catboost
+dill
 
 xgboost
+#-e .
 
 
 
