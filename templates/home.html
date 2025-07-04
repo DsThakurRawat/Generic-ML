@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Exam Performance Predictor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1f3c);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 24px;
+      color: #e0f7fa;
+    }
+
+    label {
+      margin-bottom: 6px;
+      display: block;
+      color: #cfd8dc;
+      font-size: 15px;
+    }
+
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      font-size: 15px;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 18px 18px;
+    }
+
+    select:focus, input:focus {
+      outline: none;
+      border: 1px solid #64b5f6;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    option {
+      background-color: #1a1f3c;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: none;
+      background-color: #2196f3;
+      color: white;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+
+    .result {
+      margin-top: 25px;
+      background-color: rgba(0, 230, 118, 0.1);
+      color: #69f0ae;
+      text-align: center;
+      font-size: 18px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 230, 118, 0.3);
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Exam Performance Predictor</h1>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+      <label>Gender</label>
+      <select name="gender" required>
+        <option disabled selected value="">Select your Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <label>Race or Ethnicity</label>
+      <select name="ethnicity" required>
+        <option disabled selected value="">Select Ethnicity</option>
+        <option value="group A">Group A</option>
+        <option value="group B">Group B</option>
+        <option value="group C">Group C</option>
+        <option value="group D">Group D</option>
+        <option value="group E">Group E</option>
+      </select>
+
+      <label>Parental Level of Education</label>
+      <select name="parental_level_of_education" required>
+        <option disabled selected value="">Select Education</option>
+        <option value="associate's degree">Associate's Degree</option>
+        <option value="bachelor's degree">Bachelor's Degree</option>
+        <option value="high school">High School</option>
+        <option value="master's degree">Master's Degree</option>
+        <option value="some college">Some College</option>
+        <option value="some high school">Some High School</option>
+      </select>
+
+      <label>Lunch Type</label>
+      <select name="lunch" required>
+        <option disabled selected value="">Select Lunch Type</option>
+        <option value="free/reduced">Free/Reduced</option>
+        <option value="standard">Standard</option>
+      </select>
+
+      <label>Test Preparation Course</label>
+      <select name="test_preparation_course" required>
+        <option disabled selected value="">Select Course</option>
+        <option value="none">None</option>
+        <option value="completed">Completed</option>
+      </select>
+
+      <label for="reading_score">Reading Score (out of 100)</label>
+      <input type="number" name="reading_score" min="0" max="100" required />
+
+      <label for="writing_score">Writing Score (out of 100)</label>
+      <input type="number" name="writing_score" min="0" max="100" required />
+
+      <button type="submit">Predict Math Score</button>
+    </form>
+
+    {% if results %}
+    <div class="result">Predicted Math Score: {{ results }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
