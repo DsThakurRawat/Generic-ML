@@ -207,3 +207,7 @@ marimo/_lsp/
 __marimo__/
 
 nohup.out
+venv/
+*.pyc
+__pycache__/
+*.log
