@@ -1,7 +1,7 @@
 pandas 
 numpy
 seaborn
-flask
+Flask
 streamlit
 scikit-learn
 matplotlib
