@@ -7,8 +7,9 @@ scikit-learn
 matplotlib
 catboost
 dill
-
+gunicorn==21.2.0
 xgboost
+requests==2.32.3
 #-e .
 
 
