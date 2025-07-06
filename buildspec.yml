@@ -1,3 +1,4 @@
+
 version: 0.2
 
 phases:
@@ -5,12 +6,13 @@ phases:
     runtime-versions:
       python: 3.10
     commands:
-      - echo Installing Python dependencies...
+      - echo Installing dependencies...
+      - pip install --upgrade pip
       - pip install -r requirements.txt
 
   build:
     commands:
-      - echo Build phase complete.
+      - echo Build completed successfully.
 
 artifacts:
   files:
